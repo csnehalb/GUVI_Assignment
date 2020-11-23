@@ -1,0 +1,311 @@
+<html>
+<head>
+    <title>Registration Form</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{
+    margin-top: 20px;
+    background-color: rgb(185, 184, 184);
+}
+
+i{
+ 
+}
+label
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18;
+    
+}
+input{
+border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background: white;
+        line-height: 1.5em;
+        vertical-align: auto;
+        
+    }
+.inputContainer{
+    display:flex;
+    margin-left: 30px;
+    margin-right:40px;
+    height:30px
+}
+
+.item1{
+    width:50%;
+    text-align:left;
+    margin-left:15px ;
+    height:30px
+    
+}
+.item2{
+
+    width:50%;
+    text-align:right;
+    margin-right: 15px;
+    height:430px
+}
+</style>
+
+<script>
+    function show()
+    {
+        alert("Thank you")
+    }
+</script>
+</head>
+
+<body>
+
+    <form method="get" >
+      <div class="inputContainer">
+   <div class="item1">
+    <label for="Name" style="float:left"><b>FullName </b></label>
+   </div>
+   <div class="item2">
+       <span style="border-radius: 2px; border:2px solid rgb(165, 162, 162) " > 
+        <i class="fa fa-user fa-fw " ></i>
+        <input  type="text" placeholder="Username" name="usrnm" size=70 > 
+       </span>
+
+   </div>
+
+      </div>
+
+      <div class="inputContainer">
+        <div class="item1">
+         <label for="AddressLine-1" style="float:left"><b>AddressLine-1 </b></label>
+        </div>
+        <div class="item2">
+            <span style=" border-radius: 2px; border:2px solid rgb(165, 162, 162)  "  > 
+               <i class="fa fa-address-book-o  fa-fw"  ></i>
+             <input  type="text" placeholder="AddressLine-1" name="addr1" size=70   > 
+            </span>
+     
+        </div>
+     
+           </div>
+
+           <div class="inputContainer">
+            <div class="item1">
+             <label for="AddressLine-2" style="float:left"><b>AddressLine-2 </b></label>
+            </div>
+            <div class="item2">
+                <span style=" border-radius: 2px; border:2px solid rgb(165, 162, 162)  "  > 
+                   <i class="fa fa-address-book-o fa-fw "  ></i>
+                 <input  type="text" placeholder="AddressLine-2" name="addr2" size=70   > 
+                </span>
+         
+            </div>
+         
+               </div>
+
+               <div class="inputContainer">
+                <div class="item1">
+                 <label for="city" style="float:left"><b>City </b></label>
+                </div>
+                <div class="item2">
+                    <span style=" border-radius: 2px; border:2px solid rgb(165, 162, 162)  "  > 
+                        <i class="fa fa-building-o fa-fw" aria-hidden="true"></i>
+                     <input  type="text" placeholder="City" name="city" size=70   > 
+                    </span>
+             
+                </div>
+             
+                   </div>
+
+                   <div class="inputContainer">
+                    <div class="item1">
+                     <label for="state" style="float:left"><b>State/Province/Region</b></label>
+                    </div>
+                    <div class="item2">
+                        <span style=" border-radius: 2px; border:2px solid rgb(165, 162, 162)  "  > 
+                            <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
+                         <input  type="text" placeholder="State" name="state" size=70   > 
+                        </span>
+                 
+                    </div>
+                 
+                       </div>
+
+                       
+                   <div class="inputContainer">
+                    <div class="item1">
+                     <label for="zip" style="float:left"><b>Postal Code</b></label>
+                    </div>
+                    <div class="item2">
+                        <span style=" border-radius: 2px; border:2px solid rgb(165, 162, 162)  "  > 
+                            <i class="fa fa-envelope-open-o fa-fw" aria-hidden="true"></i>
+                         <input  type="text" placeholder="Postal Code" name="zip" size=70   > 
+                        </span>
+                 
+                    </div>
+                 
+                       </div>
+
+                       
+                   <div class="inputContainer">
+                    <div class="item1">
+                     <label for="email" style="float:left"><b>Email</b></label>
+                    </div>
+                    <div class="item2">
+                        <span style=" border-radius: 2px; border:2px solid rgb(165, 162, 162)  "  > 
+                           <i class="fa fa-address-book-o  fa-fw "  ></i>
+                         <input  type="text" placeholder="Email" name="email" size=70   > 
+                        </span>
+                 
+                    </div>
+                 
+                       </div>
+                       
+                       
+                   <div class="inputContainer">
+                    <div class="item1">
+                     <label for="country" style="float:left"><b>Country</b></label>
+                    </div>
+                    <div class="item2">
+                        <span style=" border-radius: 2px; border:2px solid rgb(165, 162, 162)  "  > 
+                            <i class="fa fa-flag-checkered fa-fw" aria-hidden="true"></i>
+                           <SELECT NAME="COUNTRY" id="SEL_COUNTRY" style="line-height: 1.8em; background-color: white;  width:510; height:1.8em" >
+                            <OPTION VALUE="" >-- Please Select --</OPTION>
+                           <OPTION VALUE="AR" >Argentina</OPTION>
+                           <OPTION VALUE="AU" >Australia</OPTION>
+                           <OPTION VALUE="AT" >Austria</OPTION>
+                           <OPTION VALUE="BH" >Bahrain</OPTION>
+                           <OPTION VALUE="BD" >Bangladesh</OPTION>
+                           <OPTION VALUE="BB" >Barbados</OPTION>
+                           <OPTION VALUE="BY" >Belarus</OPTION>
+                           <OPTION VALUE="BE" >Belgium</OPTION>
+                           <OPTION VALUE="BM" >Bermuda</OPTION>
+                           <OPTION VALUE="BT" >Bhutan</OPTION>
+                           <OPTION VALUE="BW" >Botswana</OPTION>
+                           <OPTION VALUE="BR" >Brazil</OPTION>
+                           <OPTION VALUE="BN" >Brunei Darussalam</OPTION>
+                           <OPTION VALUE="BG" >Bulgaria</OPTION>
+                           <OPTION VALUE="KH" >Cambodia</OPTION>
+                           <OPTION VALUE="CA" >Canada</OPTION>
+                           <OPTION VALUE="CV" >Cape Verde</OPTION>
+                           <OPTION VALUE="KY" >Cayman Islands</OPTION>
+                           <OPTION VALUE="CN" >China</OPTION>
+                           <OPTION VALUE="CU" >Cuba</OPTION>
+                           <OPTION VALUE="CY" >Cyprus</OPTION>
+                           <OPTION VALUE="DK" >Denmark</OPTION>
+                           <OPTION VALUE="EG" >Egypt</OPTION>
+                           <OPTION VALUE="SV" >El Salvador</OPTION>
+                           <OPTION VALUE="ER" >Eritrea</OPTION>
+                           <OPTION VALUE="EE" >Estonia</OPTION>
+                           <OPTION VALUE="ET" >Ethiopia</OPTION>
+                           <OPTION VALUE="FJ" >Fiji</OPTION>
+                           <OPTION VALUE="FI" >Finland</OPTION>
+                           <OPTION VALUE="FR" >France</OPTION>
+                           <OPTION VALUE="GE" >Georgia</OPTION>
+                           <OPTION VALUE="DE" >Germany</OPTION>
+                           <OPTION VALUE="GH" >Ghana</OPTION>
+                           <OPTION VALUE="GR" >Greece</OPTION>
+                           <OPTION VALUE="GY" >Guyana</OPTION>
+                           <OPTION VALUE="HK" >Hong Kong</OPTION>
+                           <OPTION VALUE="HU" >Hungary</OPTION>
+                           <OPTION VALUE="IS" >Iceland</OPTION>
+                           <OPTION VALUE="ID" >Indonesia</OPTION>
+                           <OPTION VALUE="IR" >Iran, Islamic Republic of</OPTION>
+                           <OPTION VALUE="IQ" >Iraq</OPTION>
+                           <OPTION VALUE="IE" >Ireland</OPTION>
+                           <OPTION VALUE="IL" >Israel</OPTION>
+                           <OPTION VALUE="IT" >Italy</OPTION>
+                           <OPTION VALUE="JP" >Japan</OPTION>
+                           <OPTION VALUE="JO" >Jordan</OPTION>
+                           <OPTION VALUE="KE" >Kenya</OPTION>
+                           <OPTION VALUE="KP" >Korea, Democratic People's Republic of</OPTION>
+                           <OPTION VALUE="KR" >Korea, Republic of</OPTION>
+                           <OPTION VALUE="KW" >Kuwait</OPTION>
+                           <OPTION VALUE="LV" >Latvia</OPTION>
+                           <OPTION VALUE="LU" >Luxembourg</OPTION>
+                           <OPTION VALUE="MO" >Macao</OPTION>
+                           <OPTION VALUE="MW" >Malawi</OPTION>
+                           <OPTION VALUE="MY" >Malaysia</OPTION>
+                           <OPTION VALUE="MV" >Maldives</OPTION>
+                           <OPTION VALUE="MU" >Mauritius</OPTION>
+                           <OPTION VALUE="MX" >Mexico</OPTION>
+                           <OPTION VALUE="MN" >Mongolia</OPTION>
+                           <OPTION VALUE="MA" >Morocco</OPTION>
+                           <OPTION VALUE="NA" >Namibia</OPTION>
+                           <OPTION VALUE="NR" >Nauru</OPTION>
+                           <OPTION VALUE="NP" >Nepal</OPTION>
+                           <OPTION VALUE="NL" >Netherlands</OPTION>
+                           <OPTION VALUE="NZ" >New Zealand</OPTION>
+                           <OPTION VALUE="NE" >Niger</OPTION>
+                           <OPTION VALUE="NG" >Nigeria</OPTION>
+                           <OPTION VALUE="NO" >Norway</OPTION>
+                           <OPTION VALUE="OM" >Oman</OPTION>
+                           <OPTION VALUE="PK" >Pakistan</OPTION>
+                           <OPTION VALUE="PA" >Panama</OPTION>
+                           <OPTION VALUE="PG" >Papua New Guinea</OPTION>
+                           <OPTION VALUE="PH" >Philippines</OPTION>
+                           <OPTION VALUE="PL" >Poland</OPTION>
+                           <OPTION VALUE="PT" >Portugal</OPTION>
+                           <OPTION VALUE="QA" >Qatar</OPTION>
+                           <OPTION VALUE="RO" >Romania</OPTION>
+                           <OPTION VALUE="RU" >Russian Federation</OPTION>
+                           <OPTION VALUE="RW" >Rwanda</OPTION>
+                           <OPTION VALUE="WS" >Samoa</OPTION>
+                           <OPTION VALUE="SA" >Saudi Arabia</OPTION>
+                           <OPTION VALUE="SN" >Senegal</OPTION>
+                           <OPTION VALUE="SG" >Singapore</OPTION>
+                           <OPTION VALUE="ZA" >South Africa</OPTION>
+                           <OPTION VALUE="ES" >Spain</OPTION>
+                           <OPTION VALUE="LK" >Sri Lanka</OPTION>
+                           <OPTION VALUE="SD" >Sudan</OPTION>
+                           <OPTION VALUE="SE" >Sweden</OPTION>
+                           <OPTION VALUE="CH" >Switzerland</OPTION>
+                           <OPTION VALUE="TW" >Taiwan, Province of China</OPTION>
+                           <OPTION VALUE="TZ" >Tanzania, United Republic of</OPTION>
+                           <OPTION VALUE="TH" >Thailand</OPTION>
+                           <OPTION VALUE="TN" >Tunisia</OPTION>
+                           <OPTION VALUE="TR" >Turkey</OPTION>
+                           <OPTION VALUE="UG" >Uganda</OPTION>
+                           <OPTION VALUE="UA" >Ukraine</OPTION>
+                           <OPTION VALUE="AE" >United Arab Emirates</OPTION>
+                           <OPTION VALUE="GB" >United Kingdom</OPTION>
+                           <OPTION VALUE="US" >United States of America</OPTION>
+                           <OPTION VALUE="UY" >Uruguay</OPTION>
+                           <OPTION VALUE="VN" >Viet Nam</OPTION>
+                           <OPTION VALUE="YE" >Yemen</OPTION>
+                           <OPTION VALUE="ZR" >Zair</OPTION>
+                           <OPTION VALUE="ZM" >Zambia</OPTION>
+                           <OPTION VALUE="ZW" >Zimbabwe</OPTION>
+                         
+                     </SELECT> 
+                        </span>
+                 
+                    </div>
+                 
+                       </div>
+
+                       
+                   <div class="inputContainer">
+                    <div class="item1">
+                     <label for="phoneno" style="float:left"><b>Phone No</b></label>
+                    </div>
+                    <div class="item2">
+                        <span style=" border-radius: 2px; border:2px solid rgb(165, 162, 162)  "  > 
+                           <i class="fa fa-address-book-o  fa-fw"  ></i>
+                         <input  type="text" placeholder="Phone Number" name="phoneno" size=70   > 
+                        </span>
+                 
+                    </div>
+                 <br/>
+                 <br/>
+
+                       </div>
+                       <div style="text-align: center; height: 100px; vertical-align: center; margin-bottom: 50px;">
+                       <input type="button" value="Submit" onclick="show()">
+                    </div>
+                       
+                       
+    </form>
+</body>
+</html>
