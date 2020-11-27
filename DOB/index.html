@@ -1,0 +1,89 @@
+
+<html>
+    <head>
+     
+        <!-- <form>
+            <input type=date id="date1"/>
+            <input type="button" onclick="calcDate()"  value="Calculate Difference">
+            <input type="text" id="text1"/>
+        </form>
+
+        
+    --> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+     <style>
+
+     </style>
+</head>
+    <body>
+        <script>
+           // remember this is equivalent to 06 01 2010
+//dates in js are counted from 0, so 05 is june
+
+var dateelem=document.createElement("input")
+dateelem.type="date"
+dateelem.id="date1"
+//dateelem.classList.add("form-control")
+document.body.append(dateelem)
+
+var linebreak = document.createElement('br');
+document.body.appendChild(linebreak)
+
+var linebreak2= document.createElement('br');
+document.body.appendChild(linebreak2)
+
+var btn1=document.createElement("input")
+btn1.type="button"
+btn1.value="Calculate Difference"
+btn1.onclick=calcDate
+//btn1.classList.add("btn btn-primary")
+
+
+document.body.append(btn1)
+
+var linebreak1 = document.createElement('br');
+document.body.appendChild(linebreak1)
+
+var linebreak3= document.createElement('br');
+document.body.appendChild(linebreak3)
+
+var div1=document.createElement("div")
+div1.id="div1"
+    div1.style.fontFamily="monospace"
+       div1.style.fontSize=30
+       div1.style.color="red"
+       div1.style.textAlign='center'
+    document.body.append(div1)
+ 
+
+function calcDate() {
+    var date1=new Date()
+   
+    var date2 = new Date(document.getElementById("date1").value);
+    
+    var diff = Math.floor(date1.getTime()- date2.getTime());
+    var day = 1000 * 60 * 60 * 24;
+    var secondiff=diff/1000
+    var mindiff=diff/1000*60
+    var days = Math.floor(diff/day);
+    var months = (date2.getFullYear()-date1.getFullYear())*12+(date2.getMonth()-date1.getMonth())
+    var years = date2.getFullYear()-date1.getFullYear()
+    var message = date2.toDateString();
+    message += " was "
+    message+=diff+"  milliseconds  "
+    message+=secondiff+"  seconds   "
+    message+=mindiff+"  minutes  "
+    message += days + "  days  " 
+    message += months + " months "
+    message += years + " years ago \n"
+
+    document.getElementById("div1").innerHTML=message
+       
+    }
+
+
+// a = calcDate(today,past)
+// console.log(a) // returns Tue Jun 01 2010 was 1143 days 36 months 3 years ago
+        </script>
+    </body>
+</html>

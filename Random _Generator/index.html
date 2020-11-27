@@ -1,0 +1,61 @@
+<html>
+    <head>
+     <style>
+       
+     </style>
+    </head>
+    <body>
+   <script>
+      
+      var btn1=document.createElement('button')
+      var t = document.createTextNode("Generate 8 digit Number");
+      btn1.appendChild(t);
+      
+      document.body.appendChild(btn1)
+      //document.body.innerHTML('<br/>')
+       
+      btn1.addEventListener('click',show)
+           
+      var div1=document.createElement('div')
+       div1.style.fontFamily="monospace"
+       div1.style.fontSize=30
+       div1.style.color="red"
+       div1.style.textAlign='center'
+       div1.id="div1"
+      document.body.appendChild(div1)
+      
+      
+      function show()
+      {
+        /*var div1=document.createElement('div')
+           div1.style.fontFamily="monospace"
+            div1.style.fontSize=30
+            div1.style.color="red"
+           div1.style.textAlign='center'*/
+           length=8
+           var randomno= Math.floor(Math.pow(10, length-1) + Math.random() * (Math.pow(10, length)- Math.pow(10, length-1)))
+            document.getElementById('div1').innerHTML=randomno 
+      
+          
+
+      }
+       
+
+       /*function randomFixedInteger(length) {
+
+           var randomno= Math.floor(Math.pow(10, length-1) + Math.random() * (Math.pow(10, length)- Math.pow(10, length-1)))
+           console.log(randomno)
+           var div1=document.createElement('div')
+           div1.style.fontFamily="monospace"
+            div1.style.fontSize=30
+            div1.style.color="red"
+           div1.style.textAlign='center'   
+       div1.innerHTML=randomno
+       document.body.appendChild(div1)
+           
+       } */ 
+  
+   </script>
+
+    </body>
+</html>
