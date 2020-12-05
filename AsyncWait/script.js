@@ -150,8 +150,9 @@ data.forEach((element,index) => {
     console.log(weatherresult.main.temp)
     console.log(weatherresult.weather[0].description)
     console.log(weatherresult.weather[0].icon)
-    
-    var modal=document.createElement("div")
+    alert( "Temperature:  "+ weather.main.temp+" "+"\nHumidity=  "+ weather.main.humidity+"\nDescription "+ weather.weather[0].description)
+
+   /* var modal=document.createElement("div")
     modal.classList.add("modal")
     modal.tabIndex=-1
     modal.setAttribute("role","dialog")
@@ -210,7 +211,7 @@ data.forEach((element,index) => {
     modaldailog.appendChild(modalcontent)
     modal.appendChild(modaldailog)
     document.body.append(modal)  
-
+*/
     
 
 
