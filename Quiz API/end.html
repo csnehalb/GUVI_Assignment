@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+    <style>
+         #div1{
+                position:absolute;
+                top:30%;
+                left:30%;
+            }
+    </style>
+</head>
+<body>
+    <script>
+      
+      var hscore={}
+
+      var score=sessionStorage.getItem("score")
+
+      var div=document.createElement("div")
+      div.id="div1"
+      div.style.textAlign="center"
+     
+      var span=document.createElement("h1")
+      span.innerHTML=score
+      span.style.color="skyblue"
+      span.style.width="100%"
+    
+      div.appendChild(span)
+      document.body.appendChild(div)
+      
+     /* var br2=document.createElement("br")
+      div.appendChild(br2)
+      document.body.appendChild(div)
+*/
+      var text1=document.createElement("input")
+      text1.id="text1"
+      text1.type="text"
+      text1.size=80
+      text1.placeholder="Enter Name"
+      div.appendChild(text1)
+      document.body.appendChild(div)
+
+      var br6=document.createElement("br")
+      div.appendChild(br6)
+      document.body.appendChild(div)
+
+      var br5=document.createElement("br")
+      div.appendChild(br5)
+      document.body.appendChild(div)
+
+      var savebtn=document.createElement("button")
+      savebtn.innerHTML="Save"
+      savebtn.setAttribute('class','btn btn-info')
+      savebtn.style.width="100%"
+
+      savebtn.addEventListener('click',savescore)
+
+    div.appendChild(savebtn)
+    document.body.appendChild(div)
+
+    var br1=document.createElement("br")
+    div.appendChild(br1)
+    document.body.appendChild(div)
+    var br3=document.createElement("br")
+    div.appendChild(br3)
+    document.body.appendChild(div)
+
+
+    var homebtn=document.createElement("button")
+    homebtn.innerHTML=" Home"
+    homebtn.setAttribute('class','btn btn-info')
+    homebtn.style.width="100%"
+    
+    homebtn.addEventListener('click',function(){
+         
+        location.href = "index.html"
+
+    })
+
+    div.appendChild(homebtn)
+    document.body.appendChild(div)
+
+
+    async function savescore(){
+          var data = {
+               name : document.getElementById("text1").value,
+               score : score
+          }
+
+          var sendData = await fetch("https://5fcf534c4c97bb00165354c5.mockapi.io/highscores",{
+               method : "POST",
+               body:JSON.stringify(data),
+               headers : {
+                    "Content-type" : "application/json"
+               }
+          })
+        }
+    </script>
+</body>
+</html>

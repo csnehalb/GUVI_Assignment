@@ -1,0 +1,312 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <style>
+            #divid1{
+                position:absolute;
+                top:30%;
+                left:20%;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+
+           var quest=sessionStorage.getItem('questions') 
+           
+           var questions=JSON.parse(quest)
+           console.log(questions)
+           var count=parseInt(sessionStorage.getItem('count'))
+           var score=parseInt(sessionStorage.getItem('score'))
+           var width=parseInt(sessionStorage.getItem('width'))
+           console.log(count)
+           console.log(score)
+
+            var optionarr=questions.results[count].incorrect_answers;
+            optionarr.push(questions.results[count].correct_answer)
+            optionarr=optionarr.sort()
+          console.log(optionarr)
+         
+         /* var options=sessionStorage.getItem("options")
+          console.log(options)
+          var optionarr=options.split(",")*/
+           function generate_question()
+           {
+            var div= document.createElement("div")
+            div.classList.add("container")
+            div.style.color="blue"
+            div.style.width="100%"
+            div.id="divid1"
+            
+            var divrow=document.createElement("div")
+            divrow.classList.add("row")
+            
+            var divcol1=document.createElement("div")
+            divcol1.classList.add("col-sm-6")
+            divcol1.classList.add("float:left")
+       
+
+            var h3=document.createElement("h3")
+            h3.id="h3"
+            h3.innerHTML="Questions: " + (count+1)+"/10"
+            divcol1.appendChild(h3)            
+
+
+            var divcol2=document.createElement("div")
+            divcol2.classList.add("col-sm-6")
+            divcol2.classList.add("float:right")
+       
+
+            var h4=document.createElement("h3")
+            h4.id="h4"
+            h4.innerHTML="Score: " + score
+            divcol2.appendChild(h4)
+            
+            
+            divrow.appendChild(divcol1)
+            divrow.appendChild(divcol2)
+
+            div.appendChild(divrow)
+
+            document.body.appendChild(div)
+
+
+            var divrow1=document.createElement("div")
+            divrow1.classList.add("row")
+            
+            var divcol3=document.createElement("div")
+            divcol3.classList.add("col-sm-6")
+            divcol3.classList.add("float:left")
+          
+            var divprogress=document.createElement("div")
+            divprogress.classList.add("progress")
+            div.style.width="100%"
+
+            var divprogressbar=document.createElement("div")
+            divprogressbar.id="divprogressbar1"
+            divprogressbar.classList.add("progress-bar")
+            divprogressbar.style.width="10%"
+
+            divprogress.appendChild(divprogressbar)
+            divcol3.appendChild(divprogress)
+
+            var divcol4=document.createElement("div")
+            divcol4.classList.add("col-sm-6")
+            divcol4.classList.add("float:right")
+       
+            divrow1.appendChild(divcol3)
+            divrow1.appendChild(divcol4)
+            
+            div.appendChild(divrow1)
+
+            document.body.append(div)
+
+            var divrow2=document.createElement("div")
+            divrow2.classList.add("row")
+            
+            var divcol5=document.createElement("div")
+            divcol5.classList.add("col-sm-12")
+            divcol5.classList.add("float:left")
+            
+            var h6=document.createElement("h6")
+            h6.id="h6"
+            h6.innerHTML="     " + questions.results[count].question
+            
+            divcol5.appendChild(h6)
+            divrow2.append(divcol5)
+            div.appendChild(divrow2)
+            document.body.append(div)
+
+
+            var divrow3=document.createElement("div")
+            divrow3.classList.add("row")
+            
+            var divcol6=document.createElement("div")
+            divcol6.classList.add("col-sm-12")
+            divcol6.classList.add("float:left")
+            
+            var ch1="A"
+            var text1=optionarr[0]
+            var ch2="B"
+            var text2=optionarr[1]
+            var ch3="C"
+            var text3=optionarr[2]
+            var ch4="D"
+            var text4=optionarr[3]
+
+            divcol6.innerHTML=` <div class="row">
+            
+             <div style="float:right" >
+            <label class="btn btn-info active" width=50 style="text-align:right">
+              <input type="radio" name="options" id="option1" style="border:2px solid blue"  value=${text1} > ${ch1}
+            </label>
+            </div>
+
+            <div>
+             <input type="text" id="text1" value=${text1} size=70 style="line-height: 2em;"  style="text-align:left"; border:2px solid blue " disabled> 
+             </div>
+            </div>
+        
+            <div class="row">
+            
+            <div style="float:right" >
+           <label class="btn btn-info active" width=50 style="text-align:right">
+             <input type="radio" name="options" id="option2"  style="border:2px solid blue"  value=${text2} > ${ch2}
+           </label>
+           </div>
+
+           <div>
+            <input type="text" id="text2" value=${text2} size=70 style="line-height: 2em;"  style="text-align:left"; border:2px solid blue " disabled> 
+            </div>
+           </div>
+            
+           <div class="row">
+            
+            <div style="float:right" >
+           <label class="btn btn-info active" width=50 style="text-align:right">
+             <input type="radio" name="options" id="option3"  style="border:2px solid blue"   value=${text3} > ${ch3}
+           </label>
+           </div>
+
+           <div>
+            <input type="text"  id="text3" value=${text3} size=70 style="line-height: 2em;"  style="text-align:left"; border:2px solid blue " disabled> 
+            </div>
+           </div>
+
+           <div class="row">
+            
+            <div style="float:right" >
+           <label class="btn btn-info active" width=50 style="text-align:right">
+             <input type="radio" name="options" id="option4"  style="border:2px solid blue" value=${text4} > ${ch4}
+           </label>
+           </div>
+
+           <div>
+            <input type="text" id="text4"  value=${text4} size=70 style="line-height: 2em;"  style="text-align:left"; border:2px solid blue " disabled> 
+            </div>
+           </div>
+          
+          `
+
+            
+           /* var divrow31=document.createElement("div")
+            divrow31.classList.add("row")
+            
+            var label1=document.createElement("div")
+            label1.classList.add("btn")
+            label1.classList.add("btn-secondry")
+
+            var choice1=document.createElement("input")
+            choice1.type="radio" 
+            choice1.name = "options"
+            choice1.id="option1"
+            
+            label1.appendChild(choice1)
+            choice1.value("A")
+            
+            //var ch1="A"
+            //label1.innerHTML="<input type='radio' name='options' id='option1' autocomplete= 'off'  checked>"+ ch1
+
+            var text1=document.createElement("input")
+            text1.type="text"
+            text1.size=100
+            text1.value="Choice1"
+           // text1.isContentEditable=false
+
+            divrow31.append(label1,text1)
+           // divrow31.appendChild(text1)
+*/
+           // divcol6.appendChild(divrow31)
+           
+            divrow3.appendChild(divcol6)
+            div.appendChild(divrow3)
+            document.body.append(div)
+            
+      
+
+
+            /*var playbtn=document.createElement("button")
+            playbtn.innerHTML="Submit"
+            playbtn.addEventListener('click',next)
+
+             div.appendChild(playbtn)
+             document.body.appendChild(div)*/
+             
+             document.getElementById("option1").addEventListener('click',next)
+            document.getElementById("option2").addEventListener('click',next)
+            document.getElementById("option3").addEventListener('click',next)
+            document.getElementById("option4").addEventListener('click',next)
+            
+            
+            
+  
+
+           }
+
+
+           function next()
+                {
+                   if(count<9)
+                   {
+
+
+                          var ans= document.querySelector('input[name="options"]:checked').value
+                          console.log(ans)
+                          if(ans==questions.results[count].correct_answer) 
+                             {
+                               score=score+10
+                               sessionStorage.setItem('score',score)
+                                document.getElementById("h4").innerHTML="Score: " + score
+                             }
+                           count++
+                           console.log(count)
+                           sessionStorage.setItem('count',count)
+                           document.getElementById("h3").innerHTML="Questions: " + (count+1)+"/10"
+                   
+                   
+
+                            width=width+10
+                            sessionStorage.setItem('width',width)
+                            document.getElementById("divprogressbar1").style.width=width+"%"
+             
+                            document.getElementById("h6").innerHTML=questions.results[count].question
+                   
+
+                            var  options1=questions.results[count].incorrect_answers;
+                             options1.push(questions.results[count].correct_answer)
+                              options1=options1.sort()
+                             sessionStorage.setItem("options",options1)
+
+
+                             document.getElementById("text1").value=options1[0]
+                             document.getElementById("text2").value=options1[1]
+                             document.getElementById("text3").value=options1[2]
+                             document.getElementById("text4").value=options1[3]
+                             document.getElementById("option1").value=options1[0]
+                             document.getElementById("option2").value=options1[1]
+                             document.getElementById("option3").value=options1[2]
+                             document.getElementById("option4").value=options1[3]
+                }//if
+                else
+                {
+                    var ans= document.querySelector('input[name="options"]:checked').value
+                          console.log(ans)
+                          if(ans==questions.results[count].correct_answer) 
+                          {
+                             score=score+10
+                            sessionStorage.setItem('score',score)
+                          }
+                location.href = "end.html"
+                }
+
+            }
+           generate_question()
+        </script>
+
+
+    </body>
+</html>

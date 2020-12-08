@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <style>
+    #div1{
+        position:absolute;
+        top:5%;
+        left:40%;
+    }
+</style>
+</head>
+<body>
+<script>
+
+async function populateData(){
+
+    var userData = await fetch("https://5fcf534c4c97bb00165354c5.mockapi.io/highscores");
+    var userResult = await userData.json();
+    generatehtml(userResult)
+          
+}
+    function generatehtml(userResult1){
+
+              var userResult=userResult1.sort(function(a,b){
+    return b.score - a.score;
+    })
+              var div=document.createElement("div")
+              div.id="div1"
+              div.style.textAlign="center"
+
+               var h3=document.createElement("h2")
+               h3.innerHTML="High Scores"
+               h3.style.color="skyblue"
+
+               div.appendChild(h3)
+                document.body.append(div)
+
+                var br1=document.createElement("br")
+                div.appendChild(br1)
+                document.body.append(div)
+
+ 
+
+          var table=document.createElement("table")
+          table.setAttribute('class','table table-striped')
+          table.style.width="200%"
+          var thead=document.createElement("thead")
+          
+          var tr1=document.createElement("tr")
+
+          var th3=document.createElement("th")
+          th3.scope="col"
+          th3.innerHTML="Sr.No"
+          tr1.appendChild(th3)
+
+
+
+          var th1=document.createElement("th")
+          th1.scope="col"
+          th1.innerHTML="Name"
+          tr1.appendChild(th1)
+
+          var th2=document.createElement("th")
+          th2.scope="col"
+          th2.innerHTML="Score"
+          tr1.appendChild(th2)
+
+          thead.appendChild(tr1)
+          table.appendChild(thead)
+
+
+          var tbody = document.createElement("tbody")
+          tbody.innerHTML = "";
+          count=1
+          userResult.forEach((obj) => {
+               var tr = document.createElement("tr");
+               
+               var td1 = document.createElement("td")
+               td1.innerHTML = count++;
+               
+               var td2 = document.createElement("td")
+               td2.innerHTML = obj.name;
+               
+               var td3 = document.createElement("td")
+               td3.innerHTML = obj.score;
+               
+               
+               tr.appendChild(td1)
+               tr.appendChild(td2)
+               tr.appendChild(td3)
+               
+               tbody.appendChild(tr)
+               table.appendChild(tbody)
+
+               
+          });
+
+          div.appendChild(table)
+          document.body.append(div)
+
+          var homebtn=document.createElement("button")
+    homebtn.innerHTML=" Home"
+    homebtn.setAttribute('class','btn btn-info')
+    homebtn.style.width="100%"
+    
+    homebtn.addEventListener('click',function(){
+         
+        location.href = "index.html"
+
+    })
+
+    div.appendChild(homebtn)
+    document.body.appendChild(div)
+ 
+
+         }
+
+      
+  populateData()
+
+</script>
+</body>
+</html>
